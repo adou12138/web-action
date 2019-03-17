@@ -7,8 +7,8 @@
 
 from selenium import webdriver
 
-class Invest():
-    '这个是测试投资的页面'
+class InvestPage():
+    '投资页面调用'
 
     def __init__(self, driver):
         self.driver = driver

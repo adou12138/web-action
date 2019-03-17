@@ -9,7 +9,7 @@ sys.path.append("../")
 
 import unittest
 from selenium import webdriver
-from pages.login import Login  # 导入登录页面操作
+from pages.login import LoginPage  # 导入登录页面操作
 from pages.index import IndexPage  # 导入首页
 # from libext.ddtNew import ddt, data
 from ddt import ddt, data
@@ -24,7 +24,7 @@ class TestLogin(unittest.TestCase):
         cls.driver = webdriver.Chrome()
         cls.driver.get(cls.url)
         cls.driver.implicitly_wait(30)
-        cls.login_page = Login(cls.driver)
+        cls.login_page = LoginPage(cls.driver)
 
     def setUp(self):
         pass
@@ -87,6 +87,4 @@ class TestLogin(unittest.TestCase):
         # print("password: ", data['password'])
 
         self.login_page.submit_userinfo(data['phone'], data['password'])
-        self.assertTrue(data['expected'] == self.login_page.js_error().text)
-
-
+        self.assertTrue(data['expected'] == self.login_page.unauthorizon_info().text)

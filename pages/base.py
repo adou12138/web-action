@@ -8,19 +8,18 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 import logging
 
-my_log = logging.log()
+# my_log = logging.log()
 
 class BasePage:
-    '这个是所有页面的父类'
+    '所有页面的父类'
 
     def __init__(self, driver):
         self.driver = driver
 
-    def wait(self, local):
+    # 可以接受定义的复杂
+    def get_visible_element(self, locator, eqc=20):
         try:
-            WebDriverWait(self.driver, 20).until(ec.visibility_of_element_located((By.XPATH, locals())))
+            WebDriverWait(self.driver, eqc).until(ec.visibility_of_element_located(locator))
         except Exception as e:
             print("No this element{}!!!".format(e))
-        return WebDriverWait(self.driver, 20).until(ec.visibility_of_element_located((By.XPATH, locals())))
-
-
+        return WebDriverWait(self.driver, eqc).until(ec.visibility_of_element_located(locator))
