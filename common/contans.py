@@ -11,6 +11,10 @@ base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 datas_dir = os.path.join(base_dir, "datas")
 login_data = os.path.join(datas_dir, "login.py")
 
+log_dir = os.path.join(base_dir, "log")
+log_file = os.path.join(datas_dir, "test.log")
+print(log_file)
+
 pages_dir = os.path.join(base_dir, "pages")
 base_page = os.path.join(datas_dir, "base.py")
 index_page = os.path.join(datas_dir, "index.py")

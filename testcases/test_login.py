@@ -15,10 +15,14 @@ from pages.index import IndexPage  # 导入首页
 from ddt import ddt, data
 from datas import login  # 导入登录的数据
 
+# import logging
+# logging.basicConfig(filename="test.log", level="INFO")
+# my_log = logging.getLogger()
+
 @ddt
 class TestLogin(unittest.TestCase):
     '这个是一个测试登录的类'
-    @classmethod
+    @classmethod  # 类方法，实例方法，静态方法 cls
     def setUpClass(cls):
         cls.url = "http://120.79.176.157:8012/index/login.html"
         cls.driver = webdriver.Chrome()
@@ -30,7 +34,6 @@ class TestLogin(unittest.TestCase):
         pass
 
     def tearDown(self):
-        pass
         self.login_page.clear_phone()
         self.login_page.clear_password()
 

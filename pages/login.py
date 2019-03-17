@@ -19,6 +19,7 @@ class LoginPage(BasePage):
     phone_user_locator = (By.NAME, "phone")
     password_user_locator = (By.NAME, "password")
     unauthorizon_info_locator = (By.XPATH, "//div[@class='layui-layer-content']")
+    alert_info_locator = (By.XPATH, "//div[@class='form-error-info']")
 
     # 继承 ==> BasePage
 
@@ -29,6 +30,7 @@ class LoginPage(BasePage):
     def submit_userinfo(self, phone, password):
         phone_ele = self.driver.find_element_by_name("phone")
         pwd_ele = self.driver.find_element_by_name("password")
+
 
         # 需要等待
         # phone_ele = BasePage.get_visible_element(self.phone_user_locator)
@@ -45,16 +47,20 @@ class LoginPage(BasePage):
 
     # 接受定义的复杂，不能接受调用的复杂（简化函数的调用，使用函数时只会使用函数名，而不会使用函数的内容）
     def get_phone_element(self):
-        return WebDriverWait(self.driver, 20).until(ec.visibility_of_element_located((
-            By.NAME, "phone")))
+        return self.get_visible_element(self.phone_user_locator)
+        # return WebDriverWait(self.driver, 20).until(ec.visibility_of_element_located((
+        #     By.NAME, "phone")))
 
     def get_password_element(self):
-        return WebDriverWait(self.driver, 20).until(ec.visibility_of_element_located((
-            By.NAME, "password")))
+        return self.get_visible_element(self.password_user_locator)
+        # return WebDriverWait(self.driver, 20).until(ec.visibility_of_element_located((
+        #     By.NAME, "password")))
 
     def alert_info(self):
-
-        return self.driver.find_element_by_xpath("//div[@class='form-error-info']")
+        return self.get_visible_element(self.alert_info_locator)
+        # return WebDriverWait(self.driver, 20).until(ec.visibility_of_element_located((
+        #     By.XPATH, "//div[@class='form-error-info']")))
+        # return self.driver.find_element_by_xpath("//div[@class='form-error-info']")
 
     def unauthorizon_info(self):
         return self.get_visible_element(self.unauthorizon_info_locator)
