@@ -3,8 +3,8 @@
 # login 
 # shen 
 # 2019/3/16 12:27 
-
-user_currect_info = {"phone": "18684720553", "password": "python"}
+# {"phone": "18684720553", "password": "python"}
+user_currect_info = [{"phone": "13816031063", "password": "lzx123456"}]
 
 user_error_info = [{"phone": "", "password": "", "expected": "请输入手机号"},
                    {"phone": "", "password": "python", "expected": "请输入手机号"},

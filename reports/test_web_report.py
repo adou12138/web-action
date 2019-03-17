@@ -12,7 +12,6 @@ import unittest
 from libext import HTMLTestRunnerNew
 from common import contans
 
-
 from testcases.test_login import TestLogin  # 导入登录
 # from test_cases import test_api_regitser  # 模块方式导入注册
 
@@ -21,7 +20,6 @@ loader = unittest.TestLoader()
 
 # suite.addTest(loader.loadTestsFromTestCase(TestLogin))  # 执行注册
 # suite.addTest(loader.loadTestsFromModule(test_api_regitser))  # 模块方式执行注册
-
 
 # 自动查找testcase目录下，以test开头的.py文件里面的测试类
 discover = unittest.defaultTestLoader.discover(contans.testcase_dir, pattern='test_*.py')

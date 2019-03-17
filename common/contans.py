@@ -8,12 +8,19 @@ import os
 # 项目绝对路径地址
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+common_dir = os.path.join(base_dir, "common")
+log_config_file = os.path.join(common_dir, "logger.py")
+config_file = os.path.join(common_dir, "config")
+
+conf_dir = os.path.join(base_dir, "conf")
+web1_conf_file = os.path.join(conf_dir, "web1.conf")
+
 datas_dir = os.path.join(base_dir, "datas")
 login_data = os.path.join(datas_dir, "login.py")
 
 log_dir = os.path.join(base_dir, "log")
-log_file = os.path.join(datas_dir, "test.log")
-print(log_file)
+log_file = os.path.join(log_dir, "luckytestlog.log")
+# print(log_file)
 
 pages_dir = os.path.join(base_dir, "pages")
 base_page = os.path.join(datas_dir, "base.py")

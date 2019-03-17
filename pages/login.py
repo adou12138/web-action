@@ -26,15 +26,12 @@ class LoginPage(BasePage):
     # def __init__(self, driver):
     #     self.driver = driver
 
+
+    """
     # 颗粒度太大，需要简化
     def submit_userinfo(self, phone, password):
         phone_ele = self.driver.find_element_by_name("phone")
         pwd_ele = self.driver.find_element_by_name("password")
-
-
-        # 需要等待
-        # phone_ele = BasePage.get_visible_element(self.phone_user_locator)
-        # pwd_ele = BasePage.get_visible_element(self.password_user_locator)
 
         # 输入内容
         phone_ele.send_keys(phone)
@@ -44,6 +41,15 @@ class LoginPage(BasePage):
         phone_ele.submit()
 
         # time.sleep(5)  # 不要使用强制等待
+    """
+    def send_phone_element(self, phone):
+        return self.get_phone_element().send_keys(phone)
+
+    def send_password_element(self, password):
+        return self.get_password_element().send_keys(password)
+
+    def submit_element(self):
+        return self.get_phone_element().submit()
 
     # 接受定义的复杂，不能接受调用的复杂（简化函数的调用，使用函数时只会使用函数名，而不会使用函数的内容）
     def get_phone_element(self):
@@ -75,4 +81,3 @@ class LoginPage(BasePage):
 
     def click_remember(self):
         pass
-
