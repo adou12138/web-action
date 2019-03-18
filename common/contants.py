@@ -20,6 +20,9 @@ login_data = os.path.join(datas_dir, "login.py")
 
 log_dir = os.path.join(base_dir, "log")
 log_file = os.path.join(log_dir, "luckytestlog.log")
+pictures_dir = os.path.join(log_dir, "errorinfo")
+pictures_file = os.path.join(pictures_dir, "test")
+
 # print(log_file)
 
 pages_dir = os.path.join(base_dir, "pages")

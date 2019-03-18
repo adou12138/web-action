@@ -6,7 +6,7 @@
 
 import logging
 import logging.handlers
-from common import contans
+from common import contants
 from common.config import ReadConfig
 
 config = ReadConfig()
@@ -26,7 +26,7 @@ def get_logger(logger_name):
     fmt = data_formatter
     formate = logging.Formatter(fmt)
 
-    file_name = contans.log_file
+    file_name = contants.log_file
     file_handler = logging.handlers.RotatingFileHandler(file_name, maxBytes=20*1024*1024, backupCount=10, encoding="utf-8")
     file_handler.setLevel(file_out_level)
     file_handler.setFormatter(formate)

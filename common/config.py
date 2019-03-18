@@ -5,14 +5,14 @@
 # 2019/3/17 20:08 
 
 from configparser import ConfigParser
-from common import contans
+from common import contants
 
 class ReadConfig:
     '这个是一个读取配置的类'
 
     def __init__(self):
         self.config = ConfigParser()
-        self.config.read(contans.web1_conf_file, encoding="utf-8")
+        self.config.read(contants.web1_conf_file, encoding="utf-8")
 
     def get_value(self, section, option):
         return self.config.get(section, option)

@@ -30,18 +30,20 @@ class TestLogin(unittest.TestCase):
         cls.login_page = LoginPage(cls.driver)
 
     def setUp(self):
-        pass
-
-    def tearDown(self):
         self.login_page.clear_phone()
         self.login_page.clear_password()
+
+    def tearDown(self):
+        pass
+        # self.login_page.clear_phone()
+        # self.login_page.clear_password()
 
     @classmethod
     def tearDownClass(cls):
         # cls.driver.close()  # 加了会拖慢加载速度
         cls.driver.quit()
 
-    @unittest.skip("忽略")
+    # @unittest.skip("忽略")
     @data(*login.user_currect_info)
     def test_login_2_success(self, data):
         """
@@ -55,14 +57,14 @@ class TestLogin(unittest.TestCase):
         self.login_page.submit_element()
 
         user_ele = IndexPage(self.driver).get_user()
-        self.assertTrue("小蜜蜂" in user_ele.text)
+        self.assertTrue("小小蜜蜂" in user_ele.text)
 
     # @unittest.skip("忽略")
     @data(*login.user_error_info)
     def test_login_0_failed(self, data):
         # 字典，列表+ddt，来保存登录的用例
-        print("phone: ", data['phone'])
-        print("password: ", data['password'])
+        # print("phone: ", data['phone'])
+        # print("password: ", data['password'])
 
         # self.login_page.submit_userinfo(data['phone'], data['password'])
         self.login_page.send_phone_element(data['phone'])
