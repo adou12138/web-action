@@ -24,5 +24,3 @@ class IndexPage(BasePage):
         #     By.XPATH, "//img[@class='mr-5']//.."
         # )))
         return self.get_visible_element(self.index_locator)
-
-

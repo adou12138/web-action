@@ -21,12 +21,10 @@ class LoginPage(BasePage):
     unauthorizon_info_locator = (By.XPATH, "//div[@class='layui-layer-content']")
     alert_info_locator = (By.XPATH, "//div[@class='form-error-info']")
 
-
     # 继承 ==> BasePage
 
     # def __init__(self, driver):
     #     self.driver = driver
-
 
     """
     # 颗粒度太大，需要简化

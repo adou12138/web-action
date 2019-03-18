@@ -13,8 +13,9 @@ from pages.invest import InvestPage  # 导入投资
 # from libext.ddtNew import ddt, data
 from ddt import ddt, data
 from datas import login  # 导入登录的数据
+from datas import invest
 
-
+@ddt
 class TestInvest(unittest.TestCase):
     '这是测试投资的用例'
 
@@ -27,6 +28,12 @@ class TestInvest(unittest.TestCase):
         cls.login_page = LoginPage(cls.driver)
         cls.invest_page = InvestPage(cls.driver)
 
+        cls.login_page.send_phone_element("18684720553")
+        cls.login_page.send_password_element("python")
+        cls.login_page.submit_element()
+
+        cls.invest_page.choose_bid_click_element().click()
+
     def setUp(self):
         pass
 
@@ -37,39 +44,23 @@ class TestInvest(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    # @unittest.skip("忽略")
-    def test_invest_0_failed(self):
-        self.login_page.send_phone_element("18684720553")
-        self.login_page.send_password_element("python")
-        self.login_page.submit_element()
-
-        self.invest_page.choose_bid_click_element().click()
-
-        self.invest_page.bid_input_element().click()
-        self.invest_page.bid_input_element().send_keys("10")
-        self.invest_page.bid_button_element().click()
-
-        self.assertTrue("投标金额必须为100的倍数" in self.invest_page.bid_error_alert_element().text)
-
-    # alert = driver.switch_to.alert  # 通过变量来接收alert，是全局的，只有一次，不需要定位
-
-
-
-
-
-    @unittest.skip("忽略")
-    def test_invest_1_success(self):
-        self.login_page.send_phone_element("18684720553")
-        self.login_page.send_password_element("python")
-        self.login_page.submit_element()
-
-        self.invest_page.choose_bid_click_element().click()
+    @data(*invest.bid_success_message)
+    def test_invest(self, data):
+        # self.login_page.send_phone_element("18684720553")
+        # self.login_page.send_password_element("python")
+        # self.login_page.submit_element()
+        #
+        # self.invest_page.choose_bid_click_element().click()
 
         self.invest_page.bid_input_element().click()
-        self.invest_page.bid_input_element().send_keys("100")
+        self.invest_page.bid_input_element().send_keys(data['amount'])
         self.invest_page.bid_button_element().click()
 
-        success = self.invest_page.bid_success_alert_element()
-        print(success, type(success))
-
-        # self.assertTrue("投标成功" in self.invest_page.bid_success_alert_element().text)
+        if self.invest_page.bid_success_message_element():
+            # print(self.invest_page.bid_success_message_element().text)
+            self.assertTrue(data['expected'] in self.invest_page.bid_success_message_element().text)
+            self.invest_page.bid_success_message_click_element().click()
+        else:
+            # print(self.invest_page.bid_error_message_element().text)
+            self.assertTrue(data['expected'] in self.invest_page.bid_error_message_element().text)
+            self.invest_page.bid_error_message_click_element().click()

@@ -3,6 +3,7 @@
 # base 
 # shen 
 # 2019/3/16 12:20
+
 from webbrowser import Chrome
 
 from selenium.webdriver.common.by import By
@@ -46,5 +47,3 @@ class BasePage:
         except Exception as e:
             my_logger.error("No this alert{}!!!".format(e))
             self.driver.save_screenshot(contants.pictures_file+"{}.jpg".format(time.time()))
-
-

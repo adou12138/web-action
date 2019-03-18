@@ -17,21 +17,18 @@ class InvestPage(BasePage):
     bid_choose_button_locator = (By.XPATH, "//a[contains(@href, '5774') and @class='btn btn-special']")  # 抢投标
 
     bid_input_locator = (By.XPATH, "//input[@class='form-control invest-unit-investinput']")  # 投标输入
-    bid_button_locator = (By.XPATH,"//button[@class ='btn btn-special height_style']")  # 投标按钮
+    bid_button_locator = (By.XPATH, "//button[@class ='btn btn-special height_style']")  # 投标按钮
 
-    error_alert_locator = (By.XPATH, "//div[@class='text-center']")  # 错误弹出框
-    #  //div[@class='layui-layer-content']
-    error_alert_click_locator = (By.XPATH, "//a[@class='layui-layer-btn0']")  # 错误弹出框信息确认
+    # bid_error_alert_locator = (By.XPATH, "//div[@class='text-center']")  # 错误弹出框-文字提示
+    bid_error_message_locator = (By.XPATH, "//div[@id='layui-layer1']")  # 错误弹出框
+    bid_error_message_click_locator = (
+        By.XPATH, "//div[@class='layui-layer layui-anim layui-layer-dialog ']//a[@class='layui-layer-ico layui-layer-close layui-layer-close1']")  # 错误弹出框信息确认
 
-    success_alert_locator = (By.XPATH, "//div[@id='layui-layer6']//div[@class='capital_font1 note'] ")  # 投标成功弹出框
-    success_alert_click_locator = (By.XPATH, "//div[@id='layui-layer6']//button[contains(text(),'查看并激活')]")  # 成功弹出框信息确认
-
-    # //button[contains(text(),'查看并激活')]
-
-    # 年化收益://<div class="mt-5 bold red font_30 line_h40">12%</div>
-
-
-
+    bid_success_message_locator = (
+        By.XPATH, "//div[@class='layui-layer layui-anim layui-layer-page ']//div[@class='capital_ts']")  # 投标成功弹出框
+    bid_success_message_click_locator = (By.XPATH, "//div[@id='layui-layer2']//img[@src='/Public/frontend/images/close_pop.png']")
+    # X关闭
+    # //div[@id='layui-layer6']//button[contains(text(),'查看并激活')]  # 提示文字
 
     # def __init__(self, driver):
     #     self.driver = driver
@@ -42,24 +39,39 @@ class InvestPage(BasePage):
     def choose_bid_click_element(self):
         return self.get_visible_element(self.bid_choose_button_locator)
 
-
     def bid_input_element(self):
         return self.get_visible_element(self.bid_input_locator)
 
     def bid_button_element(self):
         return self.get_visible_element(self.bid_button_locator)
 
-    # 错误alert
+    # 错误message
+    def bid_error_message_element(self):
+        return self.get_visible_element(self.bid_error_message_locator)
+
+    def bid_error_message_click_element(self):
+        return self.get_visible_element(self.bid_error_message_click_locator)
+
+    # 成功message
+    def bid_success_message_element(self):
+        return self.get_visible_element(self.bid_success_message_locator)
+
+    def bid_success_message_click_element(self):
+        return self.get_visible_element(self.bid_success_message_click_locator)
+
+    def clear_bid_element(self):
+        pass
+    """
+    alert
     def bid_error_alert_element(self):
         return self.get_invest_alert_element(self.error_alert_locator)
 
     def bid_error_alert_click_element(self):
         return self.get_invest_alert_element(self.error_alert_click_locator)
 
-    # 成功alert
     def bid_success_alert_element(self):
         return self.get_invest_alert_element(self.success_alert_locator)
 
     def bid_success_alert_click_element(self):
         return self.get_invest_alert_element(self.success_alert_click_locator)
-
+    """

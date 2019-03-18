@@ -7,13 +7,17 @@
 
 user_info = [{"phone": "18684720553", "password": "python"}]
 
-bid_info = [{"amonut": "100", "expected": "投资成功"}]
+bid_success_message = [
+                      {"amount": "10", "expected": "投标金额必须为100的倍数"},
+                      {"amount": "100", "expected": "投标成功"}
+                      ]
 
-bid_error_message = [{"amonut": "10", "expected": "投标金额必须为100的倍数"}
-                     # {"amonut": "10", "expected": "投标金额必须为100的倍数"},
-                     # {"amonut": "10", "expected": "投标金额必须为100的倍数"},
-                     # {"amonut": "10", "expected": "投标金额必须为100的倍数"},
-                     # {"amonut": "10", "expected": "投标金额必须为100的倍数"},
-                     # {"amonut": "10", "expected": "投标金额必须为100的倍数"},
-                     # {"amonut": "13", "expected": "请输入10的整数倍"} js?
+bid_error_message = [{"phone": "18684720553", "password": "python"},
+                     {"amount": "10", "expected": "投标金额必须为100的倍数"}
+                     # {"amount": "10", "expected": "投标金额必须为100的倍数"},
+                     # {"amount": "10", "expected": "投标金额必须为100的倍数"},
+                     # {"amount": "10", "expected": "投标金额必须为100的倍数"},
+                     # {"amount": "10", "expected": "投标金额必须为100的倍数"},
+                     # {"amount": "10", "expected": "投标金额必须为100的倍数"},
+                     # {"amount": "13", "expected": "请输入10的整数倍"} js?
                      ]
