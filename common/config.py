@@ -26,9 +26,23 @@ class ReadConfig:
     def get_blean(self, section, option):
         return self.config.getboolean(section, option)
 
+    """    
+    def get_sections(self):
+        return self.config.sections()
+
+    def set_option(self, section, option):
+        return self.config.set(section, option)
+    
+    def add_section(self, section):
+        return self.config.add_section()
+    """
+
+
 if __name__ == '__main__':
     res = ReadConfig()
     print(res.config.get("LogNew", "in_level"))
 
     in_level = eval(res.get_value('LogNew', 'in_level'))
     print(in_level, type(in_level))
+
+    print(res.get_sections())
