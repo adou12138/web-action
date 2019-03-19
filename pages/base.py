@@ -29,14 +29,21 @@ class BasePage:
     # 可以接受定义的复杂
     def get_visible_element(self, locator, eqc=20) -> WebElement:
         try:
-            # my_logger.info("test")
             return WebDriverWait(self.driver, eqc).until(
                 ec.visibility_of_element_located(locator))
         except Exception as e:
             my_logger.error("No this element{}!!!".format(e))
-            # self.driver.save_screenshot("test.jpg".format(time.time()))
-            # self.driver.save_screenshot("log_dir/{}.jpg".format(time.time()))
             self.driver.save_screenshot(contants.pictures_file+"{}.jpg".format(time.time()))
+
+    # def get_visible_elements
+    def switch_windows(self, name=None, fqc=20):  # 查看窗口跳转源代码
+        # 等待
+        if name is None:
+            current_handle = self.driver.current_window_handle
+            WebDriverWait(self.driver, fqc).until(ec.new_window_is_opened(current_handle))
+            handles = self.driver.window_handles
+            return self.driver.switch_to.window(handles[-1])
+        self.driver.switch_to.window()
 
     def get_invest_alert_element(self, locator, eqc=20):
         try:

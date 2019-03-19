@@ -15,6 +15,7 @@ from pages.base import BasePage
 class IndexPage(BasePage):
     'index page'
     index_locator = (By.XPATH, "//img[@class='mr-5']//..")
+    bid_ele_locator = (By.XPATH, "?")
 
     # def __init__(self, driver):
     #     self.driver = driver
@@ -24,3 +25,10 @@ class IndexPage(BasePage):
         #     By.XPATH, "//img[@class='mr-5']//.."
         # )))
         return self.get_visible_element(self.index_locator)
+
+    def bid(self):
+        # 元素
+        return self.get_bid_button().click()
+
+    def get_bid_button(self):
+        return self.get_visible_element(self.bid_ele_locator)

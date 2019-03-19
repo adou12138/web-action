@@ -10,7 +10,7 @@ sys.path.append('../')
 
 import unittest
 from libext import HTMLTestRunnerNew
-from common import contans
+from common import contants
 
 from testcases.test_login import TestLogin  # 导入登录
 # from test_cases import test_api_regitser  # 模块方式导入注册
@@ -39,7 +39,7 @@ discover = unittest.defaultTestLoader.discover(contans.testcase_dir, pattern='te
 
 
 # 执行jenkins，不能添加时间戳，不然只会显示最久的
-with open(contans.report_file, 'wb+') as file:  # 引用common中的report地址 与时间戳互换
+with open(contants.report_file, 'wb+') as file:  # 引用common中的report地址 与时间戳互换
     runner = HTMLTestRunnerNew.HTMLTestRunner(stream=file,
                                             verbosity=2,
                                             title='WEB TEST',
