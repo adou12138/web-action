@@ -36,3 +36,8 @@
 # 只是都是属于异常状态
 
 # DOM中获取具体的属性
+
+a = '3465875.51'
+b = float(a)
+print(b)
+print(round(b))

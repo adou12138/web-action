@@ -22,7 +22,7 @@ loader = unittest.TestLoader()
 # suite.addTest(loader.loadTestsFromModule(test_api_regitser))  # 模块方式执行注册
 
 # 自动查找testcase目录下，以test开头的.py文件里面的测试类
-discover = unittest.defaultTestLoader.discover(contans.testcase_dir, pattern='test_*.py')
+discover = unittest.defaultTestLoader.discover(contants.testcase_dir, pattern='test_*.py')
 # 有多层目录就要添加top_level_dir
 
 # import time

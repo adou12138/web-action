@@ -7,7 +7,7 @@
 # 帐号1：18684720553 密码: python
 # 帐号2：13760246701 密码：python
 # {"phone": "18684720553", "password": "python"}
-user_currect_info = [{"phone": "18684720553", "password": "python"}]
+user_currect_info = [{"phone": "18684720553", "password": "python", "expected": "小蜜蜂"}]
 
 user_error_info = [{"phone": "", "password": "", "expected": "请输入手机号"},
                    {"phone": "", "password": "python", "expected": "请输入手机号"},

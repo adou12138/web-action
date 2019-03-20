@@ -23,7 +23,7 @@ class TestLogin(unittest.TestCase):
     '这个是一个测试登录的类'
     @classmethod  # 类方法，实例方法，静态方法 cls
     def setUpClass(cls):
-        cls.url = "http://120.79.176.157:8012/index/login.html"
+        cls.url = "http://120.78.128.25:8765/Index/login.html"
         cls.driver = webdriver.Chrome()
         cls.driver.get(cls.url)
         cls.driver.implicitly_wait(30)
@@ -56,8 +56,13 @@ class TestLogin(unittest.TestCase):
         self.login_page.send_password_element(data['password'])
         self.login_page.submit_element()
 
-        user_ele = IndexPage(self.driver).get_user()
-        self.assertTrue("小小蜜蜂" in user_ele.text)
+        try:
+            # self.assertTrue("小小蜜蜂" in user_ele.text)
+            self.assertTrue(data['expected'] in IndexPage(self.driver).get_user().text)
+            print('Test Pass!')
+        except AssertionError as e:
+            print('Test Failed!!! AssertionError：{}'.format(e))
+            raise e
 
     # @unittest.skip("忽略")
     @data(*login.user_error_info)
@@ -71,7 +76,12 @@ class TestLogin(unittest.TestCase):
         self.login_page.send_password_element(data['password'])
         self.login_page.submit_element()
 
-        self.assertTrue(data['expected'] == self.login_page.alert_info().text)
+        try:
+            self.assertTrue(data['expected'] == self.login_page.alert_info().text)
+            print('Test Pass!')
+        except AssertionError as e:
+            print('Test Failed!!! AssertionError：{}'.format(e))
+            raise e
 
     # @unittest.skip("忽略此用例")
     @data(*login.user_error_js_info)
@@ -84,4 +94,9 @@ class TestLogin(unittest.TestCase):
         self.login_page.send_password_element(data['password'])
         self.login_page.submit_element()
 
-        self.assertTrue(data['expected'] == self.login_page.unauthorizon_info().text)
+        try:
+            self.assertTrue(data['expected'] == self.login_page.unauthorizon_info().text)
+            print('Test Pass!')
+        except AssertionError as e:
+            print('Test Failed!!! AssertionError：{}'.format(e))
+            raise e

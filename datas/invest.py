@@ -8,19 +8,19 @@
 user_currect_info = {"phone": "18684720553", "password": "python"}
 
 bid_success_pop = [
-                   {"amount": "100", "expected": "投标成功!"},
-                   {"amount": "100", "expected": "投标成功!"}
-                   ]
+                  {"amount": "100", "expected": "投标成功"},
+                  {"amount": "100", "expected": "投标成功"}
+                  ]
 
+bid_error_pop = [
+                {"amount": "10", "expected": "投标金额必须为100的倍数"},
+                {"amount": "010", "expected": "投标金额必须为100的倍数"},
+                {"amount": "0", "expected": "请正确填写投标金额"},
+                {"amount": "-10", "expected": "请正确填写投标金额"}
+                ]
 
-
-bid_error_pop = [{"phone": "18684720553", "password": "python"},
-                     {"amount": "10", "expected": "投标金额必须为100的倍数"},
-                     {"amount": "10", "expected": "投标金额必须为100的倍数"},
-                     # {"amount": "10", "expected": "投标金额必须为100的倍数"},
-                     # {"amount": "10", "expected": "投标金额必须为100的倍数"},
-                     # {"amount": "10", "expected": "投标金额必须为100的倍数"},
-                     # {"amount": "10", "expected": "投标金额必须为100的倍数"},
-                     # {"amount": "10", "expected": "投标金额必须为100的倍数"},
-                     # {"amount": "13", "expected": "请输入10的整数倍"} js?
-                     ]
+bid_error_pop_button = [
+                       {"amount": "##%#$#$", "expected": "请输入10的整数倍"},
+                       {"amount": "1", "expected": "请输入10的整数倍"},
+                       {"amount": "jhgjghj", "expected": "请输入10的整数倍"}
+                       ]

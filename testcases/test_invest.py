@@ -22,42 +22,41 @@ class TestInvest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        pass
-        # cls.driver = webdriver.Chrome()
-        # cls.driver.get("http://120.78.128.25:8765/index/login.html")
-        # cls.driver.implicitly_wait(30)
-        # cls.login_page = LoginPage(cls.driver)
-        # cls.invest_page = InvestPage(cls.driver)
-        #
-        # cls.login_page.send_phone_element(login.user_currect_info['phone'])
-        # cls.login_page.send_password_element(login.user_currect_info['password'])
-        # cls.login_page.submit_element()
-        #
-        # cls.invest_page.choose_bid_click_element().click()
+        cls.driver = webdriver.Chrome()
+        cls.driver.get("http://120.78.128.25:8765/index/login.html")
+        cls.driver.implicitly_wait(30)
+        cls.login_page = LoginPage(cls.driver)
+        cls.invest_page = InvestPage(cls.driver)
+        cls.index_page = IndexPage(cls.driver)
+
+        cls.login_page.send_phone_element(invest.user_currect_info['phone'])
+        cls.login_page.send_password_element(invest.user_currect_info['password'])
+        cls.login_page.submit_element()
+
+        IndexPage(cls.driver).bid()
 
     def setUp(self):
-        self.driver = webdriver.Chrome()
-        self.driver.get("http://120.78.128.25:8765/index/login.html")
-        self.driver.implicitly_wait(30)
-        self.login_page = LoginPage(self.driver)
-        self.invest_page = InvestPage(self.driver)
-        self.index_page = IndexPage(self.driver)
-
-        self.login_page.send_phone_element(invest.user_currect_info['phone'])
-        self.login_page.send_password_element(invest.user_currect_info['password'])
-        self.login_page.submit_element()
-
-        # self.index_page.bid()  # 放下面写？
+        pass
+        # self.driver = webdriver.Chrome()
+        # self.driver.get("http://120.78.128.25:8765/index/login.html")
+        # self.driver.implicitly_wait(30)
+        # self.login_page = LoginPage(self.driver)
+        # self.invest_page = InvestPage(self.driver)
+        # self.index_page = IndexPage(self.driver)
+        #
+        # self.login_page.send_phone_element(invest.user_currect_info['phone'])
+        # self.login_page.send_password_element(invest.user_currect_info['password'])
+        # self.login_page.submit_element()
 
     def tearDown(self):
-        self.driver.quit()
-
+        pass
+        # self.driver.quit()
 
     @classmethod
     def tearDownClass(cls):
-        pass
-        # cls.driver.quit()
+        cls.driver.quit()
 
+    """
     @unittest.skip('skip')
     @data(*invest.bid_success_pop)
     def test_invest(self, data):
@@ -79,41 +78,73 @@ class TestInvest(unittest.TestCase):
             # print(self.invest_page.bid_error_message_element().text)
             self.assertTrue(data['expected'] in self.invest_page.bid_error_pop_element().text)
             self.invest_page.bid_error_pop_click_element().click()
-
+    """
+    # @unittest.skip('skip')
     @data(*invest.bid_success_pop)
     def test_bid_success(self, data):
         # 首页点击投标
-        IndexPage(self.driver).bid()
+        # IndexPage(self.driver).bid()
         # 投标页面输入投标
-        before_amount = self.invest_page.data_amount()
-        print(before_amount)
+        before_amount = round(float(self.invest_page.data_amount()))
+        # print(before_amount)
 
         self.invest_page.bid(data['amount'])
         self.invest_page.click_bid_button_element()
 
-        success_pop = self.invest_page.bid_success_pop_text_element()
-        print(success_pop)
+        # print(self.invest_page.bid_success_pop_text_element())
         # 断言
-        # try:
-        #     self.assertTrue(data['expected'] in self.invest_page.bid_success_pop_text_element())
-        # except AssertionError as e:
-        #     raise e
+        try:
+            self.assertTrue(data['expected'] in self.invest_page.bid_success_pop_text_element())
+            print('Test Pass!')
+        except AssertionError as e:
+            print('Test Failed!!! AssertionError：{}'.format(e))
+            raise e
+        finally:
+            self.driver.refresh()
 
-        self.invest_page.bid_success_pop_close_element_click()
         self.driver.refresh()
         # 需要验证投资的金额 投资后的金额判断
-        after_amount = self.invest_page.data_amount()
-        print(after_amount)
-
+        after_amount = round(float(self.invest_page.data_amount()))
+        # print(after_amount)
         try:
-            self.assertTrue(int(before_amount) - int(after_amount) == int(data['amount']))
+            self.assertTrue(before_amount - after_amount == int(data['amount']))
+            print('Test Pass!')
         except AssertionError as e:
+            print('Test Failed!!! AssertionError：{}'.format(e))
             raise e
 
-    @unittest.skip('skip')
-    def test_bid_failed1(self):
-        pass
+    # @unittest.skip('skip')
+    @data(*invest.bid_error_pop)
+    def test_bid_failed1(self, data):
+        # IndexPage(self.driver).bid()
 
-    @unittest.skip('skip')
-    def test_bid_failed2(self):
-        pass
+        self.invest_page.bid(data['amount'])
+        self.invest_page.click_bid_button_element()
+
+        try:
+            self.assertTrue(data['expected'] in self.invest_page.bid_error_pop_text_element())
+            print('Test Pass!')
+        except AssertionError as e:
+            print('Test Failed!!! AssertionError：{}'.format(e))
+            raise e
+        finally:
+            # self.invest_page.bid_error_pop_close_element()
+            self.driver.refresh()
+
+    # @unittest.skip('skip')
+    @data(*invest.bid_error_pop_button)
+    def test_bid_failed2(self, data):
+        # IndexPage(self.driver).bid()
+
+        self.invest_page.bid(data['amount'])
+        # self.invest_page.click_bid_button_element()
+        # print(self.invest_page.bid_error_pop_button_text_element())
+
+        try:
+            self.assertTrue(data['expected'] in self.invest_page.bid_error_pop_button_text_element())
+            print('Test Pass!')
+        except AssertionError as e:
+            print('Test Failed!!! AssertionError：{}'.format(e))
+            raise e
+        finally:
+            self.driver.refresh()

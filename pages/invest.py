@@ -19,21 +19,17 @@ class InvestPage(BasePage):  # 需要重新定义元素位置
     bid_input_locator = (By.XPATH, "//input[contains(@class,'form-control invest-unit-investinput')]")  # 投标输入
     bid_button_locator = (By.XPATH, "//button[contains(@class,'btn btn-special height_style')]")  # 投标按钮
 
-    # bid_error_alert_locator = (By.XPATH, "//div[@class='text-center']")  # 错误弹出框-文字提示
-    bid_error_pop_locator = (By.XPATH, "//div[@id='layui-layer1']")  # 错误弹出框
-    bid_error_pop_click_locator = (
-        By.XPATH, "//div[@class='layui-layer layui-anim layui-layer-dialog ']//a[@class='layui-layer-ico layui-layer-close layui-layer-close1']")  # 错误弹出框信息确认
+    bid_error_pop_locator = (By.XPATH, "//div[@class='text-center']")  # 错误弹出框-文字提示
+    bid_error_pop_button_locator = (
+        By.XPATH, "//button[contains(@class,'btn btn-special height_style')]")  # 错误弹出框-文字提示
+
+    bid_error_pop_close_locator = (
+        By.XPATH, "//a[contains(@class,'layui-layer-ico layui-layer-close layui-layer-close1')]")  # 错误弹出框信息确认
 
     bid_success_pop_locator = (
         By.XPATH, "//div[@class='layui-layer-content']//div[contains(@class,'capital_font1 note')]")  # 投标成功弹出框
-    # //div[contains(@class,'layui-layer layui-anim layui-layer-page ')]//div[@class='capital_ts']
-    # //div[@class='layui-layer-content']/div[@class='capital_ts']
-    # //div[@class='layui-layer-content']//div[contains(@class,'capital_font1 note')]
-    bid_success_pop_close_locator = (By.XPATH, "//div[@id='layui-layer1']//img[contains(@src,'/Public/frontend/images/close_pop.png')]")
-
-
-    # X关闭
-    # //div[@id='layui-layer6']//button[contains(text(),'查看并激活')]  # 提示文字
+    bid_success_pop_close_locator = (
+        By.XPATH, "//div[@id='layui-layer1']//img[contains(@src,'/Public/frontend/images/close_pop.png')]")
 
     # def __init__(self, driver):
     #     self.driver = driver
@@ -83,13 +79,23 @@ class InvestPage(BasePage):  # 需要重新定义元素位置
         """
         return self.bid_input_element.get_attribute('data-amount')
 
-    # 错误message
+    # 错误pop
+    @property
     def bid_error_pop_element(self):
         return self.get_visible_element(self.bid_error_pop_locator)
 
-    def bid_error_pop_click_element(self):
-        return self.get_visible_element(self.bid_error_pop_click_locator)
+    def bid_error_pop_text_element(self):
+        return self.bid_error_pop_element.text
 
+    def bid_error_pop_close_element(self):
+        return self.get_visible_element(self.bid_error_pop_close_locator)
+
+    @property
+    def bid_error_pop_button_element(self):
+        return self.get_visible_element(self.bid_error_pop_button_locator)
+
+    def bid_error_pop_button_text_element(self):
+        return self.bid_error_pop_button_element.text
 
     def clear_bid_element(self):
         pass
