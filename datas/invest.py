@@ -9,7 +9,7 @@ user_currect_info = {"phone": "18684720553", "password": "python"}
 
 bid_success_pop = [
                   {"amount": "100", "expected": "投标成功"},
-                  {"amount": "100", "expected": "投标成功"}
+                  {"amount": "1000", "expected": "投标成功"},
                   ]
 
 bid_error_pop = [

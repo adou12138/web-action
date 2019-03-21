@@ -30,11 +30,12 @@ class TestLogin(unittest.TestCase):
         cls.login_page = LoginPage(cls.driver)
 
     def setUp(self):
+        print('Test Start')
         self.login_page.clear_phone()
         self.login_page.clear_password()
 
     def tearDown(self):
-        pass
+        print('Test End')
         # self.login_page.clear_phone()
         # self.login_page.clear_password()
 

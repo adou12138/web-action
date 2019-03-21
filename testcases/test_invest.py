@@ -36,7 +36,7 @@ class TestInvest(unittest.TestCase):
         IndexPage(cls.driver).bid()
 
     def setUp(self):
-        pass
+        print('Test Start')
         # self.driver = webdriver.Chrome()
         # self.driver.get("http://120.78.128.25:8765/index/login.html")
         # self.driver.implicitly_wait(30)
@@ -49,7 +49,7 @@ class TestInvest(unittest.TestCase):
         # self.login_page.submit_element()
 
     def tearDown(self):
-        pass
+        print('Test End')
         # self.driver.quit()
 
     @classmethod

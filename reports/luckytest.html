@@ -116,19 +116,19 @@ function html_escape(s) {
 <div class='heading'>
 <h1 style="font-family: Microsoft YaHei">WEB TEST</h1>
 <p class='attribute'><strong>测试人员 : </strong> lucky</p>
-<p class='attribute'><strong>开始时间 : </strong> 2019-03-20 22:01:02</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:05:29.701858</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 16，通过 16，通过率= 100.00%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2019-03-21 15:24:27</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:06:25.241035</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 17，通过 16，错误 1，通过率= 94.12%</p>
 
 <p class='description'>THIS IS A WEB TEST REPORT</p>
 </div>
 
 
 <p id='show_detail_line'>
-<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 94.12% }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
 <a class="btn btn-success" href='javascript:showCase(2)'>通过{ 16 }</a>
-<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 16 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 17 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
@@ -148,13 +148,13 @@ function html_escape(s) {
     <td>详细</td>
 </tr>
 
-<tr class='passClass warning'>
+<tr class='errorClass warning'>
     <td>test_invest.TestInvest: 这是测试投资的用例</td>
-    <td class="text-center">9</td>
+    <td class="text-center">10</td>
     <td class="text-center">9</td>
     <td class="text-center">0</td>
-    <td class="text-center">0</td>
-    <td class="text-center"><a href="javascript:showClassDetail('c1',9)" class="detail" id='c1'>详细</a></td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',10)" class="detail" id='c1'>详细</a></td>
 </tr>
 
 <tr id='pt1_1' class='hiddenRow'>
@@ -168,7 +168,9 @@ function html_escape(s) {
     <div id='div_pt1_1' class="collapse in" align="left">
     <pre>
     
-pt1_1: Test Pass!
+pt1_1: Test Start
+Test Pass!
+Test End
 
 
     </pre>
@@ -187,7 +189,9 @@ pt1_1: Test Pass!
     <div id='div_pt1_2' class="collapse in" align="left">
     <pre>
     
-pt1_2: Test Pass!
+pt1_2: Test Start
+Test Pass!
+Test End
 
 
     </pre>
@@ -206,7 +210,9 @@ pt1_2: Test Pass!
     <div id='div_pt1_3' class="collapse in" align="left">
     <pre>
     
-pt1_3: Test Pass!
+pt1_3: Test Start
+Test Pass!
+Test End
 
 
     </pre>
@@ -225,7 +231,9 @@ pt1_3: Test Pass!
     <div id='div_pt1_4' class="collapse in" align="left">
     <pre>
     
-pt1_4: Test Pass!
+pt1_4: Test Start
+Test Pass!
+Test End
 
 
     </pre>
@@ -244,7 +252,9 @@ pt1_4: Test Pass!
     <div id='div_pt1_5' class="collapse in" align="left">
     <pre>
     
-pt1_5: Test Pass!
+pt1_5: Test Start
+Test Pass!
+Test End
 
 
     </pre>
@@ -263,7 +273,9 @@ pt1_5: Test Pass!
     <div id='div_pt1_6' class="collapse in" align="left">
     <pre>
     
-pt1_6: Test Pass!
+pt1_6: Test Start
+Test Pass!
+Test End
 
 
     </pre>
@@ -282,7 +294,9 @@ pt1_6: Test Pass!
     <div id='div_pt1_7' class="collapse in" align="left">
     <pre>
     
-pt1_7: Test Pass!
+pt1_7: Test Start
+Test Pass!
+Test End
 
 
     </pre>
@@ -301,8 +315,10 @@ pt1_7: Test Pass!
     <div id='div_pt1_8' class="collapse in" align="left">
     <pre>
     
-pt1_8: Test Pass!
+pt1_8: Test Start
 Test Pass!
+Test Pass!
+Test End
 
 
     </pre>
@@ -321,8 +337,38 @@ Test Pass!
     <div id='div_pt1_9' class="collapse in" align="left">
     <pre>
     
-pt1_9: Test Pass!
+pt1_9: Test Start
 Test Pass!
+Test Pass!
+Test End
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft1_10' class='none'>
+    <td class='errorCase'><div class='testcases'>test_bid_success_3: dict() -> new empty dictionary</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_10' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_10'>错误</button>
+    <div id='div_ft1_10' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_10' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_10'>错误</button>
+    <div id='div_ft1_10' class="collapse in" align="left">
+    <pre>
+    
+ft1_10: Test Start
+Test End
+Traceback (most recent call last):
+  File "D:\Python34\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\web-action\testcases\test_invest.py", line 97, in test_bid_success
+    self.assertTrue(data['expected'] in self.invest_page.bid_success_pop_text_element())
+  File "D:\web-action\pages\invest.py", line 65, in bid_success_pop_text_element
+    return self.bid_success_pop_element.text
+AttributeError: 'NoneType' object has no attribute 'text'
 
 
     </pre>
@@ -350,7 +396,9 @@ Test Pass!
     <div id='div_pt2_1' class="collapse in" align="left">
     <pre>
     
-pt2_1: Test Pass!
+pt2_1: Test Start
+Test Pass!
+Test End
 
 
     </pre>
@@ -369,7 +417,9 @@ pt2_1: Test Pass!
     <div id='div_pt2_2' class="collapse in" align="left">
     <pre>
     
-pt2_2: Test Pass!
+pt2_2: Test Start
+Test Pass!
+Test End
 
 
     </pre>
@@ -388,7 +438,9 @@ pt2_2: Test Pass!
     <div id='div_pt2_3' class="collapse in" align="left">
     <pre>
     
-pt2_3: Test Pass!
+pt2_3: Test Start
+Test Pass!
+Test End
 
 
     </pre>
@@ -407,7 +459,9 @@ pt2_3: Test Pass!
     <div id='div_pt2_4' class="collapse in" align="left">
     <pre>
     
-pt2_4: Test Pass!
+pt2_4: Test Start
+Test Pass!
+Test End
 
 
     </pre>
@@ -426,7 +480,9 @@ pt2_4: Test Pass!
     <div id='div_pt2_5' class="collapse in" align="left">
     <pre>
     
-pt2_5: Test Pass!
+pt2_5: Test Start
+Test Pass!
+Test End
 
 
     </pre>
@@ -445,7 +501,9 @@ pt2_5: Test Pass!
     <div id='div_pt2_6' class="collapse in" align="left">
     <pre>
     
-pt2_6: Test Pass!
+pt2_6: Test Start
+Test Pass!
+Test End
 
 
     </pre>
@@ -464,7 +522,9 @@ pt2_6: Test Pass!
     <div id='div_pt2_7' class="collapse in" align="left">
     <pre>
     
-pt2_7: Test Pass!
+pt2_7: Test Start
+Test Pass!
+Test End
 
 
     </pre>
@@ -474,11 +534,11 @@ pt2_7: Test Pass!
 
 <tr id='total_row' class="text-center active">
     <td>总计</td>
-    <td>16</td>
+    <td>17</td>
     <td>16</td>
     <td>0</td>
-    <td>0</td>
-    <td>通过率：100.00%</td>
+    <td>1</td>
+    <td>通过率：94.12%</td>
 </tr>
 </table>
 

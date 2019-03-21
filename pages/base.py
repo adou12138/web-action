@@ -33,7 +33,7 @@ class BasePage:
                 ec.visibility_of_element_located(locator))
         except Exception as e:
             my_logger.error("No this element{}!!!".format(e))
-            self.driver.save_screenshot(contants.pictures_file+"{}.jpg".format(time.time()))
+            self.driver.save_screenshot(contants.pictures_file+"{}.png".format(time.time()))
 
     # def get_visible_elements
     def switch_windows(self, name=None, fqc=20):  # 查看窗口跳转源代码
@@ -51,4 +51,4 @@ class BasePage:
                 ec.alert_is_present(locator))
         except Exception as e:
             my_logger.error("No this alert{}!!!".format(e))
-            self.driver.save_screenshot(contants.pictures_file+"{}.jpg".format(time.time()))
+            self.driver.save_screenshot(contants.pictures_file+"{}.png".format(time.time()))
