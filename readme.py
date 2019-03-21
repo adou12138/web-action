@@ -37,6 +37,10 @@
 
 # DOM中获取具体的属性
 
+# 我通过搭建python+selenium，实现了自动化测试
+# 我在搭建selenium框架的时候，节省了多少时间
+# 我通过python代码封装，达到了什么效果
+
 a = '3465875.51'
 b = float(a)
 print(b)
