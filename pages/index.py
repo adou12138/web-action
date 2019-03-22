@@ -15,7 +15,7 @@ from pages.base import BasePage
 class IndexPage(BasePage):
     'index page'
     index_locator = (By.XPATH, "//img[@class='mr-5']//..")
-    bid_ele_locator = (By.XPATH, "//a[contains(@class,'btn btn-special') and contains(@href,'13090')]")
+    bid_ele_locator = (By.XPATH, "//a[contains(@class,'btn btn-special') and contains(@href,'13167')]")
 
     # def __init__(self, driver):
     #     self.driver = driver

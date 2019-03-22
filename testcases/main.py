@@ -11,16 +11,15 @@ import pytest
 
 if __name__ == '__main__':
     pytest.main([
-                 '-m smoke',
-                 # '-m test',
-                 # '-m all',
+                 # '-m smoke',
+                 # '-m success',
+                 # '-m investsuccess',
+                 # '-m investfailed',
+                 '-m all',
                  # '--capture=no'
                  # '--result-log=reports/result.log ',
                  # '--junit-xml=reports/result.xml',
-                 # '--html=reports/result.html'
-
-
-
+                 '--html=reports/result.html'
 
                  ])
 
