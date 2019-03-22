@@ -41,7 +41,16 @@
 # 我在搭建selenium框架的时候，节省了多少时间
 # 我通过python代码封装，达到了什么效果
 
-a = '3465875.51'
-b = float(a)
-print(b)
-print(round(b))
+# a = '3465875.51'
+# b = float(a)
+# print(b)
+# print(round(b))
+
+def test():
+    print('test')
+
+
+def py():
+    test()
+
+py()
