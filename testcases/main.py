@@ -7,7 +7,8 @@
 # 配置用例执行顺序
 
 import pytest
-
+import sys
+sys.path.append('../')
 
 if __name__ == '__main__':
     pytest.main([
