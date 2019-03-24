@@ -1,9 +1,8 @@
-# -*- coding: UTF-8 -*-
-# 当前项目的名称: python_13
-# 新文件名称：test_math_suite 
-# 当前登录名：LuckyLu
-# 创建日期：2019/1/11 16:29
-# 文件IDE名称：PyCharm
+# coding: utf-8
+# web-action 
+# test_web_report.py 
+# shen 
+# 2019/3/24 12:55 
 
 import sys
 sys.path.append('../')
@@ -58,3 +57,4 @@ with open(contants.report_file, 'wb+') as file:  # 引用common中的report地�
 # 0 显示失败的用例
 # 1 用'.'显示成功的用例 失败详细内容
 # 2 所有的的用例
+

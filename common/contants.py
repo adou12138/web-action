@@ -8,6 +8,8 @@ import os
 # 项目绝对路径地址
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# allure_dir = os.path.join(base_dir, 'allure')
+
 common_dir = os.path.join(base_dir, "common")
 log_config_file = os.path.join(common_dir, "logger.py")
 config_file = os.path.join(common_dir, "config")
