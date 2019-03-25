@@ -17,7 +17,7 @@ from pages.index import IndexPage
 from datas import invest
 
 
-login_page =None
+login_page = None
 
 @pytest.fixture(scope='class')  # 在不同用例上面加载，也只会执行一次
 def my_class_login():

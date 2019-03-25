@@ -33,4 +33,9 @@ pytest --alluredir=allure
 关闭Captured stdout call输出信息（失败或成功都不显示输出结果）,但是会显示在test session starts部分
 
 　效果等同于 --capture=no， 不捕获
+
+
+d:
+cd D:\Program Files (x86)\Jenkins\workspace\web-test\testcases
+python main.py
 """
